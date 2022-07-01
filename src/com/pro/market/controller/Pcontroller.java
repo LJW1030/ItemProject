@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pro.market.service.LoginService;
 import com.pro.market.service.Service;
+import com.pro.market.service.boardContentService;
+import com.pro.market.service.boardListService;
+import com.pro.market.service.boardWriteBService;
+import com.pro.market.service.boardWriteSService;
 import com.pro.market.service.buyTradeService;
 import com.pro.market.service.emailConfirmService;
 import com.pro.market.service.idConfirmService;
@@ -53,7 +57,7 @@ public class Pcontroller extends HttpServlet {
 		}else if(com.equals("/join.do")) {
 			service = new joinService();
 			service.execute(request, response);
-			viewPage = "main/main.jsp";
+			viewPage = "member/login.jsp";
 		}else if(com.equals("/idConfirm.do")) {
 			service = new idConfirmService();
 			service.execute(request, response);
@@ -82,6 +86,26 @@ public class Pcontroller extends HttpServlet {
 			service = new buyTradeService();
 			service.execute(request, response);
 			viewPage = "member/buyTrade.jsp";
+		}else if(com.equals("/boardList.do")) {
+			service = new boardListService();
+			service.execute(request, response);
+			viewPage = "board/boardList.jsp";
+		}else if(com.equals("/boardContent.do")) {
+			service = new boardContentService();
+			service.execute(request, response);
+			viewPage = "board/boardContent.jsp";
+		}else if(com.equals("/boardWriteSView.do")) {
+			viewPage = "board/boardWriteS.jsp";
+		}else if(com.equals("/boardWriteBView.do")) {
+			viewPage = "board/boardWriteB.jsp";
+		}else if(com.equals("/boardWriteS.do")) {
+			service = new boardWriteSService();
+			service.execute(request, response);
+			viewPage = "board/boardList.jsp";
+		}else if(com.equals("/boardWriteB.do")){
+			service = new boardWriteBService();
+			service.execute(request, response);
+			viewPage = "board/boardList.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

@@ -10,9 +10,10 @@
 <title>Insert title here</title>
 <style>
 #content_form{
-	width:800px;
-	height:800px;
+	width:500px;
+	height:1000px;
 	margin: 40px auto;
+	border: 1px solid ;
 }
 h1{
 	text-align: center;

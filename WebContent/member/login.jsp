@@ -10,11 +10,17 @@
 <title>Insert title here</title>
 <style>
 
+#content_form{
+	width:500px;
+	height:800px;
+	margin: 40px auto;
+	border: 1px solid ;
+}
 #loginForm{
 	width:400px;
 	height:800px;
 	margin: 100px auto;
-	padding: 50px 100px;
+	padding: 50px 50px;
 }
 #loginForm table{
 	margin : 20px auto;
@@ -66,6 +72,7 @@ color: black;
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>
+	<div id="content_form">
 	<form action="${conPath }/login.do" id="loginForm" method="post">
 		<table>
 			<caption>아이템마켓 회원 로그인</caption>
@@ -89,8 +96,9 @@ color: black;
 		<p>
 			<a href="">아이디 찾기 </a>ㅣ
 			<a href="">비밀번호 찾기 </a>ㅣ 
-			<a href="">회원가입</a>
+			<a href="${conPath }/joinView.do">회원가입</a>
 		</p>
 	</form>
+	</div>
 </body>
 </html>
