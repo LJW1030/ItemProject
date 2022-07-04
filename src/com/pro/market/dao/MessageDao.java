@@ -40,7 +40,7 @@ public class MessageDao {
 	}
 
 	// 메시지 보내기
-	public int sendMessage(MessageDto dto) {
+	public int sendMessage(String sendId, String getId, String etitle, String econtent) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -49,10 +49,10 @@ public class MessageDao {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getSendId());
-			pstmt.setString(2, dto.getGetId());
-			pstmt.setString(3, dto.getEtitle());
-			pstmt.setString(4, dto.getEcontent());
+			pstmt.setString(1, sendId);
+			pstmt.setString(2, getId);
+			pstmt.setString(3, etitle);
+			pstmt.setString(4, econtent);
 			result = pstmt.executeUpdate();
 			System.out.println(result == SUCCESS ? "메시지 보내기 성공" : "메시지 보내기 실패");
 		} catch (SQLException e) {
@@ -76,7 +76,7 @@ public class MessageDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT SENDID, GETID, ETITLE FROM MESSAGE WHERE SENDID=?";
+		String sql = "SELECT GETID, ETITLE, ERDATE FROM MESSAGE WHERE SENDID=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -114,14 +114,14 @@ public class MessageDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT SENDID, GETID, ETITLE FROM MESSAGE WHERE GETID=?";
+		String sql = "SELECT * FROM MESSAGE WHERE GETID=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, getId);
 			;
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				int eno = rs.getInt("eno");
 				String sendId = rs.getString("sendid");
 				String etitle = rs.getString("etitle");

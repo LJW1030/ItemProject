@@ -49,7 +49,7 @@
 					<td colspan="2">
 						<input type="submit" value="등록" class="btn">
 						<input type="button" value="목록" class="btn"
-							onclick="location.href='${conPath}/board/boardList.jsp'">
+							onclick="location.href='${conPath}/main/main.jsp'">
 					</td>
 				</tr>
 			</table>

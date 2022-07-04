@@ -28,5 +28,9 @@ public class AdminDto {
 	public void setAname(String aname) {
 		this.aname = aname;
 	}
+	@Override
+	public String toString() {
+		return "AdminDto [aid=" + aid + ", apw=" + apw + ", aname=" + aname + "]";
+	}
 	
 }

@@ -31,9 +31,15 @@ public class boardListService implements Service {
 		String b = "b";
 		if(bbs.equals(s)) {
 			ArrayList<BoardDto> boardList = bDao.getSellBoard(game, startRow, endRow);
+			if(game == null) {
+				game = " ";
+			}
 			request.setAttribute("boardList", boardList);
 		}else if(bbs.equals(b)) {
 			ArrayList<BoardDto> boardList = bDao.getBuyBoard(game, startRow, endRow);
+			if(game == null) {
+				game = " ";
+			}
 			request.setAttribute("boardList", boardList);
 		}
 		int totCnt = bDao.getBuyBoardCnt(); // 글갯수

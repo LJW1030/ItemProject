@@ -9,6 +9,10 @@
 <meta charset="${encoding}">
 <title>Insert title here</title>
 <style>
+section{
+	width:1000px;
+	height:1200px;
+}
 #content_form{
 	width:500px;
 	height:1000px;
@@ -53,7 +57,7 @@ h1{
 	border-color: #7299b4;
 }
 </style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			$('input[name="mid"]').keyup(function(){
@@ -108,6 +112,7 @@ h1{
 		});
 	</script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 	<script>
   $( function() {
@@ -173,9 +178,11 @@ h1{
         }).open();
     }
 </script>
+
 </head>
 <body>	
 	<jsp:include page="../main/header.jsp"/>
+<section>
 	<div id="content_form">
 	<form action="${conPath }/join.do" method="post">
 		<div id="j">
@@ -243,7 +250,7 @@ h1{
 		<h3>·생년월일</h3>
 		</div>
 		
-		<input type="text" name="mbirth" class="in" id="mbirth">
+		<input type="text" name="mbirth" class="in" id="mbirth" required="required">
 		
 		<div id="i">
 		<h3>·성별</h3>
@@ -258,12 +265,12 @@ h1{
 			<tr>
 				<td>
 					<input type="submit" class="btn" value="회원가입">
-					<input type="button" class="btn" value="취소" onclick="location.href='${conPath}/main/main.jsp'">
+					<input type="button" class="btn" value="취소" onclick="location.href='${conPath}/main.do'">
 				</td>
 			</tr>
 		</table>
 	</form>
-	
 	</div>
+</section>
 </body>
 </html>

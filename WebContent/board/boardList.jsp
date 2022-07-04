@@ -20,7 +20,7 @@
 			}
 		});*/
 	});
-	function fun(bno){
+	function func(bno){
 		location.href = '${conPath}/boardContent.do?bno='+bno+'&pageNum=${pageNum}';
 	}
 </script>
@@ -50,7 +50,7 @@
 						readonly="readonly"></td>
 					<td><input type="text" name="btitle" class="bt"
 						value=${board.btitle } readonly="readonly" style="cursor: pointer"
-						onclick="fun('${board.bno }')"></td>
+						onclick="func('${board.bno }')"></td>
 					<td><input type="text" name="bcost" value=${board.bcost }
 						readonly="readonly"></td>
 					<td><input type="text" name="brdate"
@@ -59,19 +59,24 @@
 			</c:forEach>
 		</table>
 		<div class="paging">
+		
 			<c:if test="${startPage > BLOCKSIZE }">
-			[ <a href="${conPath }/boardList.do?pageNum=${startPage-1}"> 이전 </a> ]
+			[ <a href="${conPath }/boardList.do?pageNum=${startPage-1}&game=${board.game}&bbs=${board.bbs}"> 이전 </a> ]
 		</c:if>
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
 				<c:if test="${i == pageNum }">
 					<b> [ ${i } ] </b>
 				</c:if>
 				<c:if test="${i != pageNum }">
-				[ <a href="${conPath }/boardList.do?pageNum=${i}"> ${i } </a> ]
+				<input type="hidden" name="game" value="${board.game }">
+				<input type="hidden" name="bbs" value="${board.bbs }">
+				[ <a href="${conPath }/boardList.do?pageNum=${i}&game=${board.game}&bbs=${board.bbs}"> ${i } </a> ]
 			</c:if>
 			</c:forEach>
 			<c:if test="${endPage<pageCnt }">
-		  [ <a href="${conPath }/boardList.do?pageNum=${endPage+1}"> 다음 </a> ]
+			<input type="hidden" name="game" value="${board.game }">
+			<input type="hidden" name="bbs" value="${board.bbs }">
+		  [ <a href="${conPath }/boardList.do?pageNum=${endPage+1}&game=${board.game}&bbs=${board.bbs}"> 다음 </a> ]
 		</c:if>
 		</div>
 	</form>

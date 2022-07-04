@@ -9,7 +9,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
+section{
+	width:1000px;
+	height:1200px;
+}
 #content_form{
 	width:500px;
 	height:800px;
@@ -72,6 +75,7 @@ color: black;
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>
+<section>
 	<div id="content_form">
 	<form action="${conPath }/login.do" id="loginForm" method="post">
 		<table>
@@ -99,6 +103,26 @@ color: black;
 			<a href="${conPath }/joinView.do">회원가입</a>
 		</p>
 	</form>
+	<form action="${conPath }/adminLogin.do" method="post">
+		<table>
+			<tr>
+				<td>
+					<input type="text" name="aid"  required="required" >
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="password" name="apw" required="required" >
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<input type="submit" value="관리자 로그인" >
+				</td>
+			</tr>		
+		</table>
+	</form>
 	</div>
+</section>
 </body>
 </html>

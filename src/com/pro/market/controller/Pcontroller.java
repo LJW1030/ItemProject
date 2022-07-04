@@ -10,13 +10,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.pro.market.service.LoginService;
+import com.pro.market.service.MessageReplyService;
+import com.pro.market.service.MessageSendingService;
+import com.pro.market.service.MessageViewService;
 import com.pro.market.service.Service;
+import com.pro.market.service.adminLoginService;
 import com.pro.market.service.boardContentService;
+import com.pro.market.service.boardDeleteService;
 import com.pro.market.service.boardListService;
+import com.pro.market.service.boardModifyService;
+import com.pro.market.service.boardModifyViewService;
 import com.pro.market.service.boardWriteBService;
 import com.pro.market.service.boardWriteSService;
 import com.pro.market.service.buyTradeService;
+import com.pro.market.service.cboardContentService;
+import com.pro.market.service.cboardDeleteService;
+import com.pro.market.service.cboardListService;
+import com.pro.market.service.cboardReplyService;
+import com.pro.market.service.cboardReplyViewService;
+import com.pro.market.service.cboardWriteService;
 import com.pro.market.service.emailConfirmService;
+import com.pro.market.service.getPostService;
 import com.pro.market.service.idConfirmService;
 import com.pro.market.service.joinService;
 import com.pro.market.service.logoutService;
@@ -106,6 +120,64 @@ public class Pcontroller extends HttpServlet {
 			service = new boardWriteBService();
 			service.execute(request, response);
 			viewPage = "board/boardList.jsp";
+		}else if(com.equals("/boardModifyView.do")) {
+			service = new boardModifyViewService();
+			service.execute(request, response);
+			viewPage = "board/boardModify.jsp";
+		}else if(com.equals("/boardModify.do")) {
+			service = new boardModifyService();
+			service.execute(request, response);
+			viewPage = "main/main.jsp";
+		}else if(com.equals("/boardDelete.do")) {
+			service = new boardDeleteService();
+			service.execute(request, response);
+			viewPage = "main/main.jsp";
+		}else if(com.equals("/cboardList.do")) {
+			service = new cboardListService();
+			service.execute(request, response);
+			viewPage = "cboard/cboardList.jsp";
+		}else if(com.equals("/cboardWriteView.do")) {
+			viewPage = "cboard/cboardWrite.jsp";
+		}else if(com.equals("/cboardWrite.do")) {
+			service = new cboardWriteService();
+			service.execute(request, response);
+			viewPage = "cboardList.do";
+		}else if(com.equals("/cboardContent.do")) {
+			service = new cboardContentService();
+			service.execute(request, response);
+			viewPage = "cboard/cboardContent.jsp";
+		}else if(com.equals("/cboardDelete.do")) {
+			service = new cboardDeleteService();
+			service.execute(request, response);
+			viewPage = "cboardList.do";
+		}else if(com.equals("/MessageView.do")) {
+			service = new MessageViewService();
+			service.execute(request, response);
+			viewPage = "board/messageSending.jsp";
+		}else if(com.equals("/sendMessage.do")) {
+			service = new MessageSendingService();
+			service.execute(request, response);
+			viewPage = "main.do";
+		}else if(com.equals("/messagePost.do")) {
+			service = new getPostService();
+			service.execute(request, response);
+			viewPage = "message/getPost.jsp";
+		}else if(com.equals("/adminLogin.do")) {
+			service = new adminLoginService();
+			service.execute(request, response);
+			viewPage = "main.do";
+		}else if(com.equals("/cboardReplyView.do")) {
+			service = new cboardReplyViewService();
+			service.execute(request, response);
+			viewPage = "cboard/cboardReply.jsp";
+		}else if(com.equals("/cboardReply.do")) {
+			service = new cboardReplyService();
+			service.execute(request, response);
+			viewPage = "main/main.jsp";
+		}else if(com.equals("/MessageReply.do")) {
+			service = new MessageReplyService();
+			service.execute(request, response);
+			viewPage = "board/messageReply.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

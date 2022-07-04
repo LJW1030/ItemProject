@@ -71,4 +71,10 @@ public class CboardDto {
 	public void setCrdate(Date crdate) {
 		this.crdate = crdate;
 	}
+	@Override
+	public String toString() {
+		return "CboardDto [cno=" + cno + ", cid=" + cid + ", ctitle=" + ctitle + ", ccontent=" + ccontent + ", cref="
+				+ cref + ", cre_step=" + cre_step + ", cre_level=" + cre_level + ", crdate=" + crdate + "]";
+	}
+	
 }

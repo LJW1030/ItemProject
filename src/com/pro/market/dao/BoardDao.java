@@ -296,25 +296,23 @@ public class BoardDao {
 		return dto;
 	}
 	// 글 수정하기
-	public int modifyBoard(BoardDto dto) {
+	public int modifyBoard(String btitle, int bcost, String bcontent, String bphoto, int bno) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE BOARD SET BTITLE=?," + 
 				"                                    BCOST=?," + 
-				"                                    BCNAME=?," + 
 				"                                    BCONTENT=?," + 
 				"                                    BPHOTO=?" + 
 				"                            WHERE BNO=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getBtitle());
-			pstmt.setInt(2, dto.getBcost());
-			pstmt.setString(3, dto.getbCname());
-			pstmt.setString(4, dto.getBcontent());
-			pstmt.setString(5, dto.getBphoto());
-			pstmt.setInt(6, dto.getBno());
+			pstmt.setString(1, btitle);
+			pstmt.setInt(2, bcost);
+			pstmt.setString(3, bcontent);
+			pstmt.setString(4, bphoto);
+			pstmt.setInt(5, bno);
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -338,6 +336,7 @@ public class BoardDao {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bno);
+			System.out.println(bno);
 			result = pstmt.executeUpdate();
 			System.out.println(result==SUCCESS? "글삭제성공":"글삭제실패");
 		} catch (SQLException e) {

@@ -40,26 +40,26 @@ public class CboardDao {
 	}
 
 	// 글목록
-	public ArrayList<CboardDto> getSellBoard(int startRow, int endRow) {
+	public ArrayList<CboardDto> getCBoard(String cid,int startRow, int endRow) {
 		ArrayList<CboardDto> dtos = new ArrayList<CboardDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM " + "        (SELECT ROWNUM RN, A.* FROM "
-				+ "        (SELECT * FROM CBOARD ORDER BY CREF DESC, CRE_STEP) A)" + "        WHERE RN BETWEEN ? AND ?";
+				+ "        (SELECT * FROM CBOARD WHERE CID=? ORDER BY CREF DESC, CRE_STEP) A)" + "        WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
+			pstmt.setString(1, cid);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				int cno = rs.getInt("cno");
-				String cid = rs.getString("cid");
 				String ctitle = rs.getString("ctitle");
 				String ccontent = rs.getString("ccontent");
 				int cref = rs.getInt("cref");
-				int cre_step = rs.getInt("ce_step");
+				int cre_step = rs.getInt("cre_step");
 				int cre_level = rs.getInt("cre_level");
 				Date crdate = rs.getDate("crdate");
 				dtos.add(new CboardDto(cno, cid, ctitle, ccontent, cref, cre_step, cre_level, crdate));
@@ -80,6 +80,47 @@ public class CboardDao {
 		}
 		return dtos;
 	}
+	// 관리자용 글목록
+		public ArrayList<CboardDto> getadCBoard(int startRow, int endRow) {
+			ArrayList<CboardDto> dtos = new ArrayList<CboardDto>();
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT * FROM " + "        (SELECT ROWNUM RN, A.* FROM "
+					+ "        (SELECT * FROM CBOARD ORDER BY CREF DESC, CRE_STEP) A)" + "        WHERE RN BETWEEN ? AND ?";
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, endRow);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					int cno = rs.getInt("cno");
+					String cid = rs.getString("cid");
+					String ctitle = rs.getString("ctitle");
+					String ccontent = rs.getString("ccontent");
+					int cref = rs.getInt("cref");
+					int cre_step = rs.getInt("cre_step");
+					int cre_level = rs.getInt("cre_level");
+					Date crdate = rs.getDate("crdate");
+					dtos.add(new CboardDto(cno, cid, ctitle, ccontent, cref, cre_step, cre_level, crdate));
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			return dtos;
+		}
 
 	// 등록된 글수
 	public int getCboardCnt() {
@@ -112,7 +153,7 @@ public class CboardDao {
 	}
 
 	// 원글쓰기
-	public int writeCboard(CboardDto dto) {
+	public int writeCboard(String cid, String ctitle, String ccontent) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -121,9 +162,9 @@ public class CboardDao {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getCid());
-			pstmt.setString(2, dto.getCtitle());
-			pstmt.setString(3, dto.getCcontent());
+			pstmt.setString(1, cid);
+			pstmt.setString(2, ctitle);
+			pstmt.setString(3, ccontent);
 			result = pstmt.executeUpdate();
 			System.out.println(result == SUCCESS ? "글쓰기성공" : "글쓰기실패");
 		} catch (SQLException e) {
@@ -211,6 +252,16 @@ public class CboardDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, cno);
 			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				String cid = rs.getString("cid");
+				String ctitle = rs.getString("ctitle");
+				String ccontent = rs.getString("ccontent");
+				int cref = rs.getInt("cref");
+				int cre_step = rs.getInt("cre_step");
+				int cre_level = rs.getInt("cre_level");
+				Date crdate = rs.getDate("crdate");
+				dto = new CboardDto(cno, cid, ctitle, ccontent, cref, cre_step, cre_level, crdate);
+			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} finally {
