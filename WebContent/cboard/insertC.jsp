@@ -1,4 +1,4 @@
-<%@page import="com.pro.market.dao.BoardDao"%>
+<%@page import="com.pro.market.dao.CboardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,11 +9,6 @@
 <head>
 <meta charset="${encoding}">
 <title>Insert title here</title>
-<style>
-	#content_form table{
-		width:80%;	
-	}
-</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
@@ -22,15 +17,10 @@
 </head>
 <body>
 <%
-	for(int i=0; i<60; i++){
-		BoardDao bDao = BoardDao.getInstance();
-		bDao.writeBuy("dkdk", "메이플스토리", "템사요"+i, 100000, "메장사꾼", "템다삼");
-	}
-	for(int i=0; i<60; i++){
-		BoardDao bDao = BoardDao.getInstance();
-		bDao.writeSell("dkdk", "메이플스토리", "템팔아요"+i, 150000, "메장사꾼", "템다팜", "멋검.png");
-	}
-response.sendRedirect("../main.do");
+	for(int i=0; i<120; i++){
+		CboardDao cDao = CboardDao.getInstance();
+		cDao.writeCboard("lee"+i, "가제"+i, "test"+i);
+	}	
 %>
 </body>
 </html>

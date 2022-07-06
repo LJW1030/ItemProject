@@ -5,7 +5,6 @@
 	 
 }
 h1{
-	text-align: center;
 	height: 50px;
 	line-height: 50px;
 }
@@ -13,44 +12,39 @@ a {
 	text-decoration: none;
 	font-weight: bold;
 	color:black;;
+	width:100px;
 }
 
 li {
 	list-style: none;
 }
-header{
-	width:100%;
-	border: 1px solid;
-}
 #header_nav {
-	border: 1px solid ;
+	width:100%;
+	min-width:1000px;
 	background-color: lightgray;
 	overflow: hidden;
 }
 #header_nav .gnb {
-	width: 1000px;
+	width : 1200px;
 	float:right;
-	border: 1px solid ;
 }
-
-
 #header_nav .gnb ul li {
-	float:right;
 	width:100px;
 	margin-right: 30px;
+	float:right;
 }
-
 #header_nav .gnb a {
 	font-size: 0.9em;
 	display: block;
-	color: black;
+}
+#header_logo{
+	margin: 0 auto;
 }
 #header_sc .search{
 	text-align: center;
 	margin: 0 auto;
 	margin-top: 50px;
 	width: 1000px;
-	border: 1px solid ;
 }
 
 #header_sc .search input[type='submit']{
@@ -86,19 +80,41 @@ line-height:23px}
 	color:#d15757;
 }
 #hidden_game{
-	position:relative;
-	margin:0 auto;
-	width:650px;
-	border: 1px solid;
+	width:300px;
 	height:400px;
-	
+	border: 1px solid #159efd;
+	background-color: white;
+	position:absolute;
+	right: 50%;
+	left: 50%;
+	transform:translate(-50%,0);
 }
 #game_list{
 	width:200px;
+	height:390px;
+	margin:0 auto;	
+}
+.glist{
+	border: none;
+	text-align: left;
+	height:16px;
+	cursor: pointer;
+}
+.list{
+	width:200px;
+	height:60px;
+	margin-top:10px;
+	background-color: #159efd;
+	color:white;
+	border: none;
+	border-radius: 30px;
+	font-weight: bold;
+	font-size:1.5em;
+	text-align: center;
 }
 #header_write{
-	width:700px;
-	margin: 0 auto;
+	width:1000px;
+	margin: 10px auto;
 	min-width: 500px;
 	overflow: hidden;
 }
@@ -111,6 +127,7 @@ line-height:23px}
 	background: green;
 	color:white;
 	font-weight: bold;
+	margin-left: 147px;
 }
 .buy{
 	width:100px;
@@ -121,4 +138,16 @@ line-height:23px}
 	background: #d15757;
 	color:white;
 	font-weight: bold;
+}
+#content_form{
+	width:1000px;
+	margin:0 auto;
+}
+img{
+	width:20px;
+	height:20px;
+	padding:8px 0 0 0;
+}
+h1{
+	margin:20px auto;
 }

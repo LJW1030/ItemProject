@@ -35,26 +35,40 @@ public class boardListService implements Service {
 				game = " ";
 			}
 			request.setAttribute("boardList", boardList);
+			int totCnt = bDao.getSellBoardCnt(game); // 글갯수
+			int pageCnt = (int)Math.ceil((double)totCnt/PAGESIZE);//페이지갯수
+			int startPage = ((currentPage-1)/BLOCKSIZE)*BLOCKSIZE+1;
+			int endPage = startPage + BLOCKSIZE - 1;
+			if(endPage>pageCnt) {
+				endPage = pageCnt;
+			}
+			request.setAttribute("BLOCKSIZE", BLOCKSIZE);
+			request.setAttribute("startPage", startPage);
+			request.setAttribute("endPage", endPage);
+			request.setAttribute("pageCnt", pageCnt);
+			request.setAttribute("totCnt", totCnt); // totCnt는 없으면 boardList.size()대용
+			request.setAttribute("pageNum", currentPage);
 		}else if(bbs.equals(b)) {
 			ArrayList<BoardDto> boardList = bDao.getBuyBoard(game, startRow, endRow);
 			if(game == null) {
 				game = " ";
 			}
 			request.setAttribute("boardList", boardList);
+			int totCnt = bDao.getBuyBoardCnt(game); // 글갯수
+			int pageCnt = (int)Math.ceil((double)totCnt/PAGESIZE);//페이지갯수
+			int startPage = ((currentPage-1)/BLOCKSIZE)*BLOCKSIZE+1;
+			int endPage = startPage + BLOCKSIZE - 1;
+			if(endPage>pageCnt) {
+				endPage = pageCnt;
+			}
+			request.setAttribute("BLOCKSIZE", BLOCKSIZE);
+			request.setAttribute("startPage", startPage);
+			request.setAttribute("endPage", endPage);
+			request.setAttribute("pageCnt", pageCnt);
+			request.setAttribute("totCnt", totCnt); // totCnt는 없으면 boardList.size()대용
+			request.setAttribute("pageNum", currentPage);
 		}
-		int totCnt = bDao.getBuyBoardCnt(); // 글갯수
-		int pageCnt = (int)Math.ceil((double)totCnt/PAGESIZE);//페이지갯수
-		int startPage = ((currentPage-1)/BLOCKSIZE)*BLOCKSIZE+1;
-		int endPage = startPage + BLOCKSIZE - 1;
-		if(endPage>pageCnt) {
-			endPage = pageCnt;
-		}
-		request.setAttribute("BLOCKSIZE", BLOCKSIZE);
-		request.setAttribute("startPage", startPage);
-		request.setAttribute("endPage", endPage);
-		request.setAttribute("pageCnt", pageCnt);
-		request.setAttribute("totCnt", totCnt); // totCnt는 없으면 boardList.size()대용
-		request.setAttribute("pageNum", currentPage);
+		
 	}
 
 }

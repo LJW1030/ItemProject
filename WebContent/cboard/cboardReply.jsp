@@ -8,6 +8,12 @@
 <head>
 <meta charset="${encoding}">
 <title>Insert title here</title>
+<style>
+	#content_form table{
+		width:80%;	
+		margin:0 auto;
+	}
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function() {

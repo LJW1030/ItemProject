@@ -3,8 +3,6 @@ package com.pro.market.service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.pro.market.dao.MessageDao;
-import com.pro.market.dto.MessageDto;
 
 public class MessageReplyService implements Service {
 

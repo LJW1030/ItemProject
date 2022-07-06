@@ -108,7 +108,7 @@ public class TradeDao {
 	}
 
 	// 거래완료
-	public int completeTrade(TradeDto dto) {
+	public int completeTrade(int bno, String sid, String bid) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -117,9 +117,9 @@ public class TradeDao {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getBno());
-			pstmt.setString(2, dto.getSid());
-			pstmt.setString(3, dto.getBid());
+			pstmt.setInt(1, bno);
+			pstmt.setString(2, sid);
+			pstmt.setString(3, bid);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

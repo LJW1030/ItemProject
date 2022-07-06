@@ -13,7 +13,7 @@ public class idConfirmService implements Service {
 		MemberDao mDao = MemberDao.getInstance();
 		int result = mDao.midConfirm(mid);
 		if(result == MemberDao.NONEXISTENT) {
-			request.setAttribute("idConfirmResult", "사용 가능한 ID입니다");
+			request.setAttribute("idConfirmResult", "<h4>사용 가능한 ID입니다</h4>");
 		}else {
 			request.setAttribute("idConfirmResult", "<b>중복된 ID입니다</b>");
 		}

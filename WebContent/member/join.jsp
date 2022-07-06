@@ -9,22 +9,41 @@
 <meta charset="${encoding}">
 <title>Insert title here</title>
 <style>
-section{
-	width:1000px;
-	height:1200px;
-}
 #content_form{
-	width:500px;
-	height:1000px;
-	margin: 40px auto;
-	border: 1px solid ;
+	width:80%;
+	height:1200px;
+	margin:0 auto;
+}
+#join_form{
+	text-align: center;
+}
+b{
+	color:red;
+}
+h4{
+	color:green;
 }
 h1{
 	text-align: center;
 	margin: 20px 0;
 }
 #i{
-	margin:10px 10px 5px 30px;
+	width:390px;
+	margin:10px auto;
+	
+}
+#pwChkResult, #idConfirmResult, #emailConfirmResult{
+	width:380px;
+	margin:10px auto;
+	text-align: left;
+}
+p{
+	width:430px;
+	margin:10px auto;
+	text-align: left;
+}
+h3{
+	text-align: left;
 }
 .in{
 	margin-left:30px;
@@ -32,20 +51,24 @@ h1{
 	height:30px;
 }
 .tel_in1{
-	margin-left: 30px;
-	width:50px;
+	margin-left: 40px;
+	width:70px;
 	height:20px;
 }
 .tel_in{
 	margin-left: 0px;
-	width:50px;
+	width:70px;
 	height:20px;
 }
 #sample4_postcode{
-	margin-left: 30px;
+	width:277px;
+	text-align: left;
 }
 #content_form input{
 	border-color: #d9d9d9;
+}
+table{
+	margin: 0 auto;
 }
 .btn{
 	margin: 30px 36px;
@@ -88,7 +111,7 @@ h1{
 				}else if(!memail){
 					$('#emailConfirmResult').html(' &nbsp; ');
 				}else{
-					$('#emailConfirmResult').html('메일 형식을 지켜주세요');
+					$('#emailConfirmResult').html('<b>메일 형식을 지켜주세요</b>');
 				}
 			});
 			/* $('input[name="mtel1"], input[name="mtel3"], input[name="mtel3"]').keyup(function(){
@@ -104,7 +127,7 @@ h1{
 				var mpw = $('input[name="mpw"]').val();
 				var mpwChk = $('input[name="mpwChk"]').val();
 				if(mpw==mpwChk){
-					$('#pwChkResult').html('비밀번호 일치');
+					$('#pwChkResult').html('<h4>비밀번호 일치</h4>');
 				}else{
 					$('#pwChkResult').html('<b>비밀번호 불일치</b>');
 				}
@@ -182,9 +205,8 @@ h1{
 </head>
 <body>	
 	<jsp:include page="../main/header.jsp"/>
-<section>
 	<div id="content_form">
-	<form action="${conPath }/join.do" method="post">
+	<form action="${conPath }/join.do" id="join_form" method="post">
 		<div id="j">
 		<h1>회원가입</h1>
 		</div>
@@ -271,6 +293,5 @@ h1{
 		</table>
 	</form>
 	</div>
-</section>
 </body>
 </html>

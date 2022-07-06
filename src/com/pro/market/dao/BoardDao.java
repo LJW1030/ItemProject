@@ -40,15 +40,16 @@ public class BoardDao {
 	}
 
 	// 등록된 판매글수
-	public int getSellBoardCnt() {
+	public int getSellBoardCnt(String game) {
 		int cnt = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) FROM BOARD WHERE BBS='S'";
+		String sql = "SELECT COUNT(*) FROM BOARD WHERE BBS='S' AND GAME=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, game);
 			rs = pstmt.executeQuery();
 			rs.next();
 			cnt = rs.getInt(1);
@@ -70,15 +71,16 @@ public class BoardDao {
 	}
 
 	// 등록된 구매글수
-	public int getBuyBoardCnt() {
+	public int getBuyBoardCnt(String game) {
 		int cnt = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) FROM BOARD WHERE BBS='B'";
+		String sql = "SELECT COUNT(*) FROM BOARD WHERE BBS='B' AND GAME=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, game);
 			rs = pstmt.executeQuery();
 			rs.next();
 			cnt = rs.getInt(1);

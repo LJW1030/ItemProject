@@ -76,14 +76,14 @@ public class MessageDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT GETID, ETITLE, ERDATE FROM MESSAGE WHERE SENDID=?";
+		String sql = "SELECT * FROM MESSAGE WHERE SENDID=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, sendId);
 			;
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				int eno = rs.getInt("eno");
 				String getId = rs.getString("getid");
 				String etitle = rs.getString("etitle");

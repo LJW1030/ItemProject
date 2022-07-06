@@ -10,17 +10,20 @@ import com.pro.market.dao.MessageDao;
 import com.pro.market.dto.MemberDto;
 import com.pro.market.dto.MessageDto;
 
-public class getPostService implements Service {
+public class sendPostService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		MemberDto member = (MemberDto) session.getAttribute("member");
 		if(member!=null) {
-		String getId = member.getMid();
-		MessageDao mDao = MessageDao.getInstance();
-		ArrayList<MessageDto> messages = mDao.getPost(getId);
-		request.setAttribute("messages", messages);
+			String sendId = member.getMid();
+			MessageDao mDao = MessageDao.getInstance();
+			ArrayList<MessageDto> messages = mDao.sendPost(sendId);
+			request.setAttribute("messages", messages);
+		}else {
+			System.out.println("로그인이 필요합니다");
 		}
 	}
+
 }

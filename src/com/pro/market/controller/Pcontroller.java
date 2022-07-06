@@ -30,12 +30,17 @@ import com.pro.market.service.cboardReplyService;
 import com.pro.market.service.cboardReplyViewService;
 import com.pro.market.service.cboardWriteService;
 import com.pro.market.service.emailConfirmService;
+import com.pro.market.service.findIdService;
+import com.pro.market.service.findPWService;
 import com.pro.market.service.getPostService;
 import com.pro.market.service.idConfirmService;
 import com.pro.market.service.joinService;
 import com.pro.market.service.logoutService;
+import com.pro.market.service.messageDeleteService;
 import com.pro.market.service.modifyService;
 import com.pro.market.service.sellTradeService;
+import com.pro.market.service.sendPostService;
+import com.pro.market.service.tradeCompleteService;
 
 @WebServlet("*.do")
 public class Pcontroller extends HttpServlet {
@@ -157,7 +162,7 @@ public class Pcontroller extends HttpServlet {
 		}else if(com.equals("/sendMessage.do")) {
 			service = new MessageSendingService();
 			service.execute(request, response);
-			viewPage = "main.do";
+			viewPage = "getPost.do";
 		}else if(com.equals("/messagePost.do")) {
 			service = new getPostService();
 			service.execute(request, response);
@@ -178,6 +183,34 @@ public class Pcontroller extends HttpServlet {
 			service = new MessageReplyService();
 			service.execute(request, response);
 			viewPage = "board/messageReply.jsp";
+		}else if(com.equals("/sendPost.do")) {
+			service = new sendPostService();
+			service.execute(request, response);
+			viewPage = "message/sendPost.jsp";
+		}else if(com.equals("/getPost.do")) {
+			service = new getPostService();
+			service.execute(request, response);
+			viewPage = "message/getPost.jsp";
+		}else if(com.equals("/messageDelete.do")){
+			service = new messageDeleteService();
+			service.execute(request, response);
+			viewPage = "sendPost.do";
+		}else if(com.equals("/TradeComplete.do")) {
+			service = new tradeCompleteService();
+			service.execute(request, response);
+			viewPage = "main.do";
+		}else if(com.equals("/findIdView.do")) {
+			viewPage = "member/findId.jsp";
+		}else if(com.equals("/findPWView.do")){
+			viewPage = "member/findPW.jsp";
+		}else if(com.equals("/findId.do")) {
+			service = new findIdService();
+			service.execute(request, response);
+			viewPage = "loginView.do";
+		}else if(com.equals("/findPW.do")) {
+			service = new findPWService();
+			service.execute(request, response);
+			viewPage = "loginView.do";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

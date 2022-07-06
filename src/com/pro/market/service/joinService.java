@@ -36,7 +36,7 @@ public class joinService implements Service {
 		if(result == MemberDao.SUCCESS) {
 			HttpSession session = request.getSession();
 			session.setAttribute("mid", mid);
-			request.setAttribute("joinResult", "회원가입이 완료되었습니다");
+			request.setAttribute("joinResult", "회원가입이 완료되었습니다 로그인 후 이용해주세요");
 		}else {
 			request.setAttribute("joinResult", "입력하신 정보가 길어서 회원가입이 실패되었습니다");
 		}

@@ -8,9 +8,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="${conPath }/css/header.css" rel="stylesheet">
 </head>
 <body>
+	<c:if test="${not empty loginError}">
+		<script>
+			alert('${loginError}');
+			history.back();
+		</script>
+	</c:if>
 	<jsp:include page="header.jsp"/>
 </body>
 </html>

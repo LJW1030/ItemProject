@@ -8,17 +8,68 @@
 <head>
 <meta charset="${encoding}">
 <title>Insert title here</title>
+<style>
+	#content_form{
+		width:1000px;
+	}
+	
+	#content_form table{
+		margin:30px auto;
+	}
+	#content_form table #tr1{
+		background-color: #159efd;
+		color:white;
+		text-align: center;
+		height:50px;
+	}
+	#content_form table #tr1 td{
+		width:70px;
+		text-align: center;
+		line-height: 50px;
+		font-size: 1.2em;
+	}
+	#content_form table #tr2 td{
+		height:50px;
+		width:70px;
+		line-height: 50px;
+		text-align: center;
+		
+	}
+	.bt{
+		width:300px;
+		text-align: center;
+		border:none;
+		font-size: large;
+		border-bottom: 1px solid #159efd;
+	}
+	#t{
+		border:none;
+		border-bottom: 1px solid #159efd;
+		text-align: center;
+		font-size: medium;
+		width:100px;
+	}
+	#g{
+		border:none;
+		border-bottom: 1px solid #159efd;
+		text-align: center;
+		font-size: medium;
+		width:150px;
+	}
+	table caption{
+		font-weight: bold;
+		font-size: 2em;
+		margin: 20px 0;
+	}
+	#content_form .paging {
+	text-align: center;
+	}
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 
 	$(document).ready(function() {
-		/*
-		$('.bt').click(function(){
-			var bno = Number($('.bno').text().trim()); // 0번째 td안의 있는 text;
-			if(!isNaN(bno)){
-				location.href = '${conPath}/boardContent.do?bno='+bno+'&pageNum=${pageNum}';
-			}
-		});*/
+		
 	});
 	function func(bno){
 		location.href = '${conPath}/boardContent.do?bno='+bno+'&pageNum=${pageNum}';
@@ -27,13 +78,19 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<form id="content_view">
+	<form id="content_form">
 		<table>
-			<tr>
+			<c:if test="${param.bbs eq 's' }">
+				<caption style="color: green">팝니다</caption>
+			</c:if>
+			<c:if test="${param.bbs eq 'b' }">
+				<caption style="color: #d15757">삽니다</caption>
+			</c:if>
+			<tr id="tr1">
 				<td>글번호</td>
 				<td>글쓴이</td>
 				<td>게임</td>
-				<td>제목</td>
+				<td class="bt">제목</td>
 				<td>가격</td>
 				<td>올린 날짜</td>
 			</tr>
@@ -41,19 +98,19 @@
 			<tr><td colspan="6">등록된 글이 없습니다</td></tr>
 			</c:if>
 			<c:forEach var="board" items="${boardList }">
-				<tr>
-					<td><input type="text" name="bno" class="bno" value="${board.bno }"
+				<tr id="tr2">
+					<td><input type="text" name="bno" id="t" class="bno" value="${board.bno }"
 						readonly="readonly"></td>
-					<td><input type="text" name="mid" value=${board.mid }
+					<td><input type="text" name="mid" id="t" value=${board.mid }
 						readonly="readonly"></td>
-					<td><input type="text" name="game" value=${board.game }
+					<td><input type="text" name="game" id="g" value=${board.game }
 						readonly="readonly"></td>
 					<td><input type="text" name="btitle" class="bt"
 						value=${board.btitle } readonly="readonly" style="cursor: pointer"
 						onclick="func('${board.bno }')"></td>
-					<td><input type="text" name="bcost" value=${board.bcost }
+					<td><input type="text" name="bcost" id="t" value=${board.bcost }
 						readonly="readonly"></td>
-					<td><input type="text" name="brdate"
+					<td><input type="text" name="brdate" id="t"
 						value=${board.brdate } readonly="readonly"></td>
 				</tr>
 			</c:forEach>
@@ -61,8 +118,8 @@
 		<div class="paging">
 		
 			<c:if test="${startPage > BLOCKSIZE }">
-			[ <a href="${conPath }/boardList.do?pageNum=${startPage-1}&game=${board.game}&bbs=${board.bbs}"> 이전 </a> ]
-		</c:if>
+			[ <a href="${conPath }/boardList.do?pageNum=${startPage-1}&game=${param.game}&bbs=${param.bbs}"> 이전 </a> ]
+			</c:if>
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
 				<c:if test="${i == pageNum }">
 					<b> [ ${i } ] </b>
@@ -70,13 +127,11 @@
 				<c:if test="${i != pageNum }">
 				<input type="hidden" name="game" value="${board.game }">
 				<input type="hidden" name="bbs" value="${board.bbs }">
-				[ <a href="${conPath }/boardList.do?pageNum=${i}&game=${board.game}&bbs=${board.bbs}"> ${i } </a> ]
+				[ <a href="${conPath }/boardList.do?pageNum=${i}&game=${param.game}&bbs=${param.bbs}"> ${i } </a> ]
 			</c:if>
 			</c:forEach>
 			<c:if test="${endPage<pageCnt }">
-			<input type="hidden" name="game" value="${board.game }">
-			<input type="hidden" name="bbs" value="${board.bbs }">
-		  [ <a href="${conPath }/boardList.do?pageNum=${endPage+1}&game=${board.game}&bbs=${board.bbs}"> 다음 </a> ]
+		  [ <a href="${conPath }/boardList.do?pageNum=${endPage+1}&game=${param.game}&bbs=${param.bbs}"> 다음 </a> ]
 		</c:if>
 		</div>
 	</form>

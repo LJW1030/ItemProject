@@ -178,7 +178,85 @@ public class MemberDao {
 		}
 		return result;
 	}
-
+	// ID 찾기
+	public MemberDto findId(String mname, String memail) {
+		MemberDto dto = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT MPW FROM MEMBER WHERE MNAME = ? AND MEMAIL= ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mname);
+			pstmt.setString(2, memail);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				String mid = rs.getString("mid");
+				String mpw = rs.getString("mpw");
+				String mtel = rs.getString("mtel");
+				String maddress = rs.getString("maddress");
+				Date mbirth = rs.getDate("mbirth");
+				String mgender = rs.getString("mgender");
+				String mgrade = rs.getString("mgrade");
+				dto = new MemberDto(mid, mpw, mname, mtel, memail, maddress, mbirth, mgender, mgrade);
+			} else {
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return dto;
+	}
+	// PW찾기
+	public MemberDto findPW(String mid, String mname, String memail) {
+		MemberDto dto = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT MID FROM MEMBER WHERE MID = ? AND MEMAIL= ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			pstmt.setString(2, memail);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				String mpw = rs.getString("mpw");
+				String mtel = rs.getString("mtel");
+				String maddress = rs.getString("maddress");
+				Date mbirth = rs.getDate("mbirth");
+				String mgender = rs.getString("mgender");
+				String mgrade = rs.getString("mgrade");
+				dto = new MemberDto(mid, mpw, mname, mtel, memail, maddress, mbirth, mgender, mgrade);
+			} else {
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return dto;
+	}
 	// MID로 DTO 가져오기(내정보)
 	public MemberDto getMember(String mid) {
 		MemberDto member = null;

@@ -8,6 +8,12 @@
 <head>
 <meta charset="${encoding}">
 <title>Insert title here</title>
+<style>
+	#content_form table{
+		width:80%;	
+		margin:0 auto;
+	}
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
@@ -64,7 +70,7 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
-	<form action="modify.do" method="post">
+	<form action="modify.do" id="content_form" method="post">
 		<table>
 			<tr>
 				<th>아이디</th>

@@ -16,7 +16,15 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<form id="content_view" action="${conPath }/MessageReply.do">
+	<div id="content_form">
+		<c:if test="${not empty messageResult }">
+			<script>
+				alert('${messageResult}');
+			</script>
+		</c:if>
+		<h4>
+			<a href="${conPath}/sendPost.do">보낸 메일함</a>
+		</h4>
 		<table>
 			<caption>받은 메일함</caption>
 			<tr>
@@ -30,7 +38,7 @@
 					<td colspan="6">받은 메시지가 없습니다</td>
 				</tr>
 			</c:if>
-			<c:forEach var="msg" items="${message }">
+			<c:forEach var="msg" items="${messages }">
 				<tr>
 					<td><input type="text" name="sendId" value="${msg.sendId }"
 						readonly="readonly"></td>
@@ -40,10 +48,14 @@
 						value="${msg.econtent }" readonly="readonly"></td>
 					<td><input type="text" name="erdate" value="${msg.erdate }"
 						readonly="readonly"></td>
-					<td><input type="submit" value="답장"></td>
+					<td><button
+							onclick="location.href='${conPath }/MessageReply.do?sendId=${msg.sendId }'">답장</button></td>
+					<td><button
+							onclick="location.href='${conPath }/messageDelete.do?eno=${msg.eno}'">삭제</button></td>
+
 				</tr>
 			</c:forEach>
 		</table>
-	</form>
+	</div>
 </body>
 </html>

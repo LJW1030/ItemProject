@@ -8,11 +8,17 @@
 <head>
 <meta charset="${encoding}">
 <title>Insert title here</title>
+<style>
+	#content_form table{
+		width:80%;	
+		margin:0 auto;
+	}
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
 		});
-		function fun(cno){
+		function ft(cno){
 			location.href = '${conPath}/cboardContent.do?cno='+cno+'&pageNum=${pageNum}';
 		}
 	</script>
@@ -25,13 +31,13 @@
 	</script>
 </c:if>
 <jsp:include page="../main/header.jsp" />
-	<form id="content_view" action="${conPath }/cboardWriteView.do">
+	<form id="content_form" action="${conPath }/cboardWriteView.do">
 				<input type="hidden" name="cno" value="${cboard.cno }">
 		<c:if test="${not empty member and empty admin }">
 		<table>
 			<caption>${member.mid}님 문의글</caption>
 			<tr>
-				<td>글번호</td>
+				<td>분류</td>
 				<td>ID</td>
 				<td>제목</td>
 				<td>등록일</td>
@@ -42,13 +48,13 @@
 			<c:set var="i" value="1"/>
 			<c:forEach var="cboard" items="${cboardList }">
 				<tr>
-					<td><input type="text" value="${i }번째 문의글"
+					<td><input type="text" value="문의글"
 						readonly="readonly"></td>
 					<td><input type="text" name="cid" value=${cboard.cid }
 						readonly="readonly"></td>
 					<td><input type="text" name="ctitle" value=${cboard.ctitle }
 						readonly="readonly" style="cursor: pointer"
-						onclick="fun('${cboard.cno }')"></td>
+						onclick="ft('${cboard.cno }')"></td>
 					<td><input type="text" name="crdate"
 						value=${cboard.crdate } readonly="readonly"></td>
 				</tr>
@@ -61,7 +67,7 @@
 		<c:if test="${empty member and not empty admin }">
 		<table>
 			<tr>
-				<td>글번호</td>
+				<td>분류</td>
 				<td>ID</td>
 				<td>제목</td>
 				<td>등록일</td>
@@ -72,13 +78,13 @@
 			<c:set var="i" value="1"/>
 			<c:forEach var="cboard" items="${cboardList }">
 				<tr>
-					<td><input type="text" value="${i }번째 문의글"
+					<td><input type="text" value="문의글"
 						readonly="readonly"></td>
 					<td><input type="text" name="cid" value=${cboard.cid }
 						readonly="readonly"></td>
 					<td><input type="text" name="ctitle" value=${cboard.ctitle }
 						readonly="readonly" style="cursor: pointer"
-						onclick="fun('${cboard.cno }')"></td>
+						onclick="ft('${cboard.cno }')"></td>
 					<td><input type="text" name="crdate"
 						value=${cboard.crdate } readonly="readonly"></td>
 				</tr>

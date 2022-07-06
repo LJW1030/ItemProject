@@ -8,6 +8,12 @@
 <head>
 <meta charset="${encoding}">
 <title>Insert title here</title>
+<style>
+	#content_form table{
+		width:80%;	
+		margin:0 auto;
+	}
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function() {
@@ -15,6 +21,12 @@
 </script>
 </head>
 <body>
+<c:if test="${empty member and empty admin }">
+	<script>
+		alert('로그인이 필요한 서비스입니다');
+		location.href="${conPath }/loginView.do";
+	</script>
+</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<h1>판매등록</h1>

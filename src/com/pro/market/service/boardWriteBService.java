@@ -28,7 +28,7 @@ public class boardWriteBService implements Service {
 				request.setAttribute("boardResult", "글쓰기 실패");
 			}
 		}else {
-			request.setAttribute("boardResult", "로그인이 필요한 작업입니다");
+			request.setAttribute("boardResult", "로그인이 필요한 서비스입니다");
 		}
 
 	}

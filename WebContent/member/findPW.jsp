@@ -8,12 +8,6 @@
 <head>
 <meta charset="${encoding}">
 <title>Insert title here</title>
-<style>
-	#content_form table{
-		width:80%;	
-		margin:0 auto;
-	}
-</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
@@ -22,30 +16,42 @@
 </head>
 <body>
 <jsp:include page="../main/header.jsp" />
-	<form id="content_form" action="${conPath }/cboardWrite.do">
+	<form id="content_form" action="${conPath }/findPW.do">
 		<table>
+			<caption>ID 찾기</caption>	
 			<tr>
 				<td>
-					ID
-					<input type="text" name="cid" value="${member.mid }"
-						readonly="readonly">
+					<h4>가입시 입력한 고객님 ID</h4>
 				</td>
-			</tr>
+			</tr>	
 			<tr>
 				<td>
-					제목
-					<input type="text" name="ctitle" >
+					<input type="text" name="mid" required="required">
 				</td>
-			</tr>
+			</tr>	
 			<tr>
 				<td>
-					내용
-					<textarea name="ccontent" rows="5" cols="32"></textarea>
+					<h4>가입시 입력한 고객님 이름</h4>
 				</td>
-			</tr>
+			</tr>	
+			<tr>
+				<td>
+					<input type="text" name="mname" required="required">
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<h4>가입시 입력한 고객님 메일 주소</h4>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<input type="email" name="memail" required="required">
+				</td>
+			</tr>	
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="등록">
+					<input type="submit" value="찾기">
 				</td>
 			</tr>
 		</table>

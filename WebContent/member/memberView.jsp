@@ -9,11 +9,11 @@
 <meta charset="${encoding}">
 <title>Insert title here</title>
 <style>
-#content_form{
-	width:900px;
-	height:480px;
-	margin:50px auto;
-}
+<style>
+	#content_form table{
+		width:80%;	
+		margin:0 auto;
+	}
 #content_form table{
 	margin: 0 auto;
 }
