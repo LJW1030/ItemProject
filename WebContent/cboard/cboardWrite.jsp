@@ -10,8 +10,30 @@
 <title>Insert title here</title>
 <style>
 	#content_form table{
-		width:80%;	
+		width:400px;
+		height:500px;
 		margin:0 auto;
+		border-collapse: collapse;
+	}
+	#content_form input:not(.btn){
+		border: none;
+		width:200px;
+		margin-left: 20px;
+	}
+	#content_form textarea{
+		width:300px;
+		height:100px;
+		border: none;
+		margin: 0 0 0 20px;
+	}
+	#content_form tr{
+		border-bottom: 1px solid;
+	}
+	#content_form .t1{
+		border: none
+	}
+	#content_form .btn{
+		margin-left: 110px;
 	}
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -40,15 +62,17 @@
 			<tr>
 				<td>
 					내용
-					<textarea name="ccontent" rows="5" cols="32"></textarea>
+					<textarea name="ccontent" rows="8" cols="50"></textarea>
 				</td>
 			</tr>
-			<tr>
+			<tr class="t1">
 				<td colspan="2">
-					<input type="submit" value="등록">
+					<input type="submit" value="등록" class="btn">
+					<input type="button" value="목록" class="btn" onclick=history.back()>
 				</td>
 			</tr>
 		</table>
 	</form>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

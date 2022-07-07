@@ -135,4 +135,35 @@ public class TradeDao {
 		}
 		return result;
 	}
+	// 거래가 완료된 글인지 아닌지
+	public int checkTrade(int bno) {
+		int result = FAIL;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM TRADE WHERE BNO=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = SUCCESS;
+			}else {
+				result = FAIL;
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
 }

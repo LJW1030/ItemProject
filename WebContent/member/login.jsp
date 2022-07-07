@@ -82,7 +82,7 @@ a {
 	</c:if>
 	<c:if test="${not empty fpw }">
 		<script>
-			alert('가입한 비밀번호는 ${fid.mpw} 입니다');
+			alert('가입한 비밀번호는 ${fpw.mpw} 입니다');
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp" />
@@ -126,5 +126,6 @@ a {
 				</table>
 			</form>
 		</div>
+		<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

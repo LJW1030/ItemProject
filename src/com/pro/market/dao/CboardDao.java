@@ -151,7 +151,36 @@ public class CboardDao {
 		}
 		return cnt;
 	}
-
+	// 본인이 작성한 글 수(회원용)
+	public int getMemberCboardCnt(String cid) {
+		int cnt = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT COUNT(*) FROM CBOARD WHERE CID=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cid);
+			rs = pstmt.executeQuery();
+			rs.next();
+			cnt = rs.getInt(1);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return cnt;
+	}
 	// 원글쓰기
 	public int writeCboard(String cid, String ctitle, String ccontent) {
 		int result = FAIL;

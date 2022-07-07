@@ -10,8 +10,32 @@
 <title>Insert title here</title>
 <style>
 	#content_form table{
-		width:80%;	
-		margin:0 auto;
+		width:800px;
+		margin: 80px auto;
+		border-collapse: collapse;
+	}
+	#content_form caption{
+		margin: 40px auto;
+	}
+	#content_form tr{
+		border-bottom: 1px solid;
+		height:50px;
+		width:100px;
+	}
+	#content_form .title{
+		width:300px;
+	}
+	#content_form .paging{
+		text-align: center;
+	}
+	#content_form input:not(.btn){
+		border:none;
+	}
+	#content_form .t1{
+		border: none;
+	}
+	#content_form input[type=submit]{
+		margin: 100px 0 50px 0;
 	}
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -50,18 +74,20 @@
 				<tr>
 					<td><input type="text" value="문의글"
 						readonly="readonly"></td>
-					<td><input type="text" name="cid" value=${cboard.cid }
+					<td><input type="text" name="cid"value=${cboard.cid }
 						readonly="readonly"></td>
-					<td><input type="text" name="ctitle" value=${cboard.ctitle }
+					<td><input type="text" name="ctitle" class="title"value=${cboard.ctitle }
 						readonly="readonly" style="cursor: pointer"
 						onclick="ft('${cboard.cno }')"></td>
 					<td><input type="text" name="crdate"
 						value=${cboard.crdate } readonly="readonly"></td>
 				</tr>
 			</c:forEach>
-			<tr>
+			<tr class="t1">
 				<td colspan="4">
-					<input type="submit" value="글쓰기">
+					<input type="submit" value="글쓰기" class="btn">
+				</td>
+			</tr>
 		</table>
 		</c:if>
 		<c:if test="${empty member and not empty admin }">
@@ -89,9 +115,11 @@
 						value=${cboard.crdate } readonly="readonly"></td>
 				</tr>
 			</c:forEach>
-			<tr>
+			<tr class="t1">
 				<td colspan="4">
-					<input type="submit" value="글쓰기">
+					<input type="submit" value="글쓰기" class="btn">
+				</td>
+			</tr>
 		</table>
 		</c:if>
 		<div class="paging">
@@ -112,5 +140,6 @@
 		</c:if>
 		</div>
 	</form>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

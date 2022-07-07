@@ -184,7 +184,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT MPW FROM MEMBER WHERE MNAME = ? AND MEMAIL= ?";
+		String sql = "SELECT * FROM MEMBER WHERE MNAME = ? AND MEMAIL= ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -224,7 +224,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT MID FROM MEMBER WHERE MID = ? AND MEMAIL= ?";
+		String sql = "SELECT * FROM MEMBER WHERE MID = ? AND MEMAIL= ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

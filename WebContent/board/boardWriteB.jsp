@@ -10,8 +10,35 @@
 <title>Insert title here</title>
 <style>
 	#content_form table{
-		width:80%;	
+		width:800px;
+		height:800px;
 		margin:0 auto;
+		background-color: #f1e2e2;
+	}
+	h1{
+		color:#d15757;
+	}
+	#content_form caption{
+		font-size: 1.2em;
+		text-align: left;
+		margin: 30px 20px;
+	}
+	#content_form input{
+		margin:10px 10px 5px 10px;
+	height:40px;
+	width: 300px;
+	border:none;
+	border-bottom: 1px solid;
+	}
+	#content_form .btn{
+		width: 200px;
+		border:none;
+		margin-left: 80px;
+	}
+	#content_form textarea{
+		margin-left: 10px;
+		width:500px;
+		height:150px;
 	}
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -33,9 +60,9 @@
 		<hr>
 		<form action="${conPath }/boardWriteB.do" method="post">
 			<table>
-				<caption>판매상품</caption>
+				<caption>구매상품</caption>
 				<tr>
-					<th>카테고리</th>
+					<th>게임</th>
 					<td><input type="text" name="game" required="required">
 					</td>
 				</tr>
@@ -67,5 +94,6 @@
 			</table>
 		</form>
 	</div>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

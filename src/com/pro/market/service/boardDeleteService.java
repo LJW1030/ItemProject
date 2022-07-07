@@ -14,9 +14,9 @@ public class boardDeleteService implements Service {
 		System.out.println(bno);
 		int result = bDao.deleteBoard(bno);
 		if(result == BoardDao.SUCCESS) {
-			request.setAttribute("boardResult", "글삭제 성공");
+			request.setAttribute("boardResult", "삭제 되었습니다");
 		}else {
-			request.setAttribute("boardResult", "글삭제 실패");
+			request.setAttribute("boardResult", "삭제 되었습니다");
 		}
 	}
 

@@ -9,9 +9,49 @@
 <meta charset="${encoding}">
 <title>Insert title here</title>
 <style>
+	#content_form{
+		width:1000px;
+	}
+	
 	#content_form table{
-		width:80%;	
-		margin:0 auto;
+		width:600px;
+		margin:30px auto;
+		border-collapse: collapse;
+	}
+	#content_form table th{
+		background-color: #159efd;
+		width:100px;
+		color:white;
+		text-align: center;
+		height:50px;
+	}
+	#content_form table #tr2{
+		border-bottom: 1px solid #159efd;
+	}
+	#content_form table td{
+		width:300px;
+		text-align: left;
+		line-height: 50px;
+		padding-left: 20px;
+	}	
+	#content_form table #tr2 td{
+		height:50px;
+		width:70px;
+		line-height: 50px;
+		text-align: center;
+	}
+	#content_form table caption{
+		font-weight: bold;
+		font-size: 1.5em;
+		margin: 20px 0;
+		text-align: center;
+	}
+	#content_form .thP{
+		height:150px;
+	}
+	#content_form .img1{
+		width:150px;
+		height:100px;
 	}
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -34,6 +74,12 @@
 	</script>
 </head>
 <body>
+<c:if test="${not empty tradeResult }">
+		<script>
+			alert('${tradeResult}');
+			history.back();
+		</script>
+</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<form action="${conPath }/MessageView.do">
@@ -57,9 +103,9 @@
 					<td>${board.brdate }</td>
 				</tr>
 				<tr>
-					<th>사진</th>
+					<th class="thP">사진</th>
 					<td><c:if test="${not empty board.bphoto }">
-							<a href="${conPath }/boardPhoto/${board.bphoto}" target="_blank">${board.bphoto}</a>
+							<img src="${conPath }/boardPhoto/${board.bphoto}" class="img1">
 						</c:if> <c:if test="${empty board.bphoto }">
 						 	사진없음
 						 </c:if></td>
@@ -70,14 +116,18 @@
 				</tr>
 
 				<tr>
-					<td colspan="2"><c:if test="${member.mid eq board.mid }">
+					<td colspan="2">
+						<c:if test="${member.mid eq board.mid }">
 							<input type="button" class="btnT" value="거래완료" onclick="fn()">
-							<input type="button" value="수정" onclick="location='${conPath}/boardModifyView.do?bno=${board.bno }&pageNum=${param.pageNum }'">
-						</c:if> <c:if test="${member.mid eq board.mid or not empty admin}">
-							<input type="button" value="삭제" onclick="location='${conPath}/boardDelete.do?bno=${board.bno }&pageNum=${param.pageNum }'">
-						</c:if> <c:if test="${!(member.mid eq board.mid) and not empty member }">
-							<input type="submit" value="거래신청">
-						</c:if> <input type="button" value="목록" class="btn" onclick=history.back()></td>
+							<input type="button" value="수정" class="btn"onclick="location='${conPath}/boardModifyView.do?bno=${board.bno }&pageNum=${param.pageNum }'">
+						</c:if> 
+						<c:if test="${member.mid eq board.mid or not empty admin}">
+							<input type="button" value="삭제" class="btn" onclick="location='${conPath}/boardDelete.do?bno=${board.bno }&pageNum=${param.pageNum }'">
+						</c:if> 
+						<c:if test="${!(member.mid eq board.mid) and not empty member }">
+							<input type="submit" value="거래신청" class="btn">
+						</c:if> 
+						<input type="button" value="목록" class="btn" onclick=history.back()></td>
 				</tr>
 			</table>
 			<table id="t1" style="display: none">
@@ -90,5 +140,6 @@
 			</table>
 		</form>
 	</div>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

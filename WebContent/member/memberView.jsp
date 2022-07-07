@@ -9,32 +9,38 @@
 <meta charset="${encoding}">
 <title>Insert title here</title>
 <style>
-<style>
-	#content_form table{
-		width:80%;	
-		margin:0 auto;
-	}
+
 #content_form table{
-	margin: 0 auto;
+	width:400px;	
+	margin:0 auto;
+	border:none;
 }
 #content_form input{
-	margin:10px 10px 5px 30px;
+	margin:10px 10px 5px 10px;
 	height:40px;
 	width: 200px;
+	border:none;
+	border-bottom: 1px solid;
+}
+#content_form table th{
+	background-color: #b6d7ef;
 }
 #content_form input[type=submit]{
 	margin: 20px 10px 10px 50px;
+	background-color: #159efd;
+	border:none;
+	color: white;
+	font-weight: bold;
 }
-h1{
+#content_form h1{
 	text-align: center;
-	margin-bottom: 30px;
 }
-p{
+#content_form p{
 	margin:0 auto;
 	width:900px;
 	height:500px;
 }
-input[type=button]{
+#content_form input[type=button]{
 	width:300px;
 	height:300px;
 	margin: 30px 20px 10px 80px;
@@ -42,12 +48,12 @@ input[type=button]{
 	text-align: center;
 	font-size:30px;
 }
-.btn1{
-	background-color: #00ff21;
+#content_form .btn1{
+	background-color: green;
 	border: none;
 }
-.btn2{
-	background-color: #20b2b2;
+#content_form .btn2{
+	background-color: #d15757;
 	border: none;
 }
 
@@ -105,10 +111,11 @@ input[type=button]{
 				</td>
 			</tr>
 		</table>
-	</form>
 	<p>
 		<input type="button" class="btn1" value="판매내역" onclick="location.href='sellTrade.do'">
 		<input type="button" class="btn2" value="구매내역" onclick="location.href='buyTrade.do'">
 	</p>
+	</form>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

@@ -14,13 +14,19 @@
 	}
 	
 	#content_form table{
+		width:1000px;
 		margin:30px auto;
+		border-collapse: collapse;
 	}
 	#content_form table #tr1{
 		background-color: #159efd;
 		color:white;
 		text-align: center;
 		height:50px;
+		font-size: 0.8em;
+	}
+	#content_form table #tr2{
+		border-bottom: 1px solid #159efd;
 	}
 	#content_form table #tr1 td{
 		width:70px;
@@ -35,34 +41,40 @@
 		text-align: center;
 		
 	}
+	#content_form table #tr2 td:last-child{
+		width:150px;
+	}
 	.bt{
-		width:300px;
-		text-align: center;
+		width:400px;
 		border:none;
 		font-size: large;
-		border-bottom: 1px solid #159efd;
+		margin-left: 20px;
 	}
 	#t{
 		border:none;
-		border-bottom: 1px solid #159efd;
 		text-align: center;
 		font-size: medium;
 		width:100px;
+		font-size: 0.8em;
 	}
 	#g{
 		border:none;
-		border-bottom: 1px solid #159efd;
 		text-align: center;
 		font-size: medium;
 		width:150px;
+		font-size: 0.8em;
 	}
 	table caption{
 		font-weight: bold;
 		font-size: 2em;
 		margin: 20px 0;
+		text-align: left;
 	}
 	#content_form .paging {
 	text-align: center;
+	}
+	#content_form .no{
+		text-align: center;
 	}
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -95,7 +107,7 @@
 				<td>올린 날짜</td>
 			</tr>
 			<c:if test="${boardList.size()==0 }">
-			<tr><td colspan="6">등록된 글이 없습니다</td></tr>
+			<tr class="no"><td colspan="6">등록된 글이 없습니다</td></tr>
 			</c:if>
 			<c:forEach var="board" items="${boardList }">
 				<tr id="tr2">
@@ -135,5 +147,6 @@
 		</c:if>
 		</div>
 	</form>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

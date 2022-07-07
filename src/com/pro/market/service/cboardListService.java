@@ -35,7 +35,7 @@ public class cboardListService implements Service {
 			CboardDao cboardDao = CboardDao.getInstance();
 			ArrayList<CboardDto> cboardList = cboardDao.getCBoard(cid, startRow, endRow);
 			request.setAttribute("cboardList", cboardList);
-			int totCnt = cboardDao.getCboardCnt(); // 글갯수
+			int totCnt = cboardDao.getMemberCboardCnt(cid); // 글갯수
 			int pageCnt = (int)Math.ceil((double)totCnt/PAGESIZE);//페이지갯수
 			int startPage = ((currentPage-1)/BLOCKSIZE)*BLOCKSIZE+1;
 			int endPage = startPage + BLOCKSIZE - 1;

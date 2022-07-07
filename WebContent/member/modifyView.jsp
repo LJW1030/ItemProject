@@ -10,9 +10,44 @@
 <title>Insert title here</title>
 <style>
 	#content_form table{
-		width:80%;	
-		margin:0 auto;
+	width:600px;	
+	margin:100px auto;
+	border:none;
 	}
+	#content_form input{
+		margin:10px 10px 5px 10px;
+		height:40px;
+		width: 200px;
+		border:none;
+		border-bottom: 1px solid;
+	}
+	#content_form table th{
+		background-color: #b6d7ef;
+	}
+	#content_form input[type=submit]{
+		margin: 20px 10px 10px 50px;
+		background-color: #159efd;
+		border:none;
+		color: white;
+		font-weight: bold;
+	}
+	#content_form h1{
+		text-align: center;
+	}
+	#content_form p{
+		margin:0 auto;
+		width:900px;
+		height:500px;
+	}
+	#content_form input[type=number]{
+		width:50px;
+		text-align: center;
+	}
+	#content_form .btn{
+		width:100px;
+		border: none;
+	}
+	
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
@@ -132,5 +167,6 @@
 			</tr>
 		</table>
 	</form>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

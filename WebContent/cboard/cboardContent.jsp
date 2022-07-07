@@ -10,8 +10,20 @@
 <title>Insert title here</title>
 <style>
 	#content_form table{
-		width:80%;	
-		margin:0 auto;
+		width: 300px;	
+		height: 400px;	
+		margin: 0 auto;
+	}
+	#content_form th{
+		margin-left: 30px;
+	}
+	#content_form input:not(.btn), pre{
+		border: none;
+		width: 180px;
+		margin-left: 10px;
+	}
+	#content_form .btn{
+		margin-left: 80px;
 	}
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -19,7 +31,7 @@
 		$(document).ready(function(){
 		});
 		function f(cno){
-			location.href = '${conPath}/cboardReplyView.do?cno='+cno+'&pageNum=${pageNum}';
+			location.href = '${conPath}/cboardReplyView.do?cno='+cno+'&pageNum=${param.pageNum}';
 		}
 	</script>
 </head>
@@ -28,7 +40,7 @@
 	<form id="content_form" action="${conPath }/cboardDelete.do">
 		<input type="hidden" name="cno" value="${cboard.cno }">
 		<table>
-			<caption>${cboard.cno }번 문의글</caption>
+			<caption>${cboard.cid }님 문의글</caption>
 			<tr>
 				<th>
 					ID
@@ -57,13 +69,15 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="삭제">
+					<input type="submit" value="삭제" class="btn">
+					<input type="button" value="목록" class="btn" onclick=history.back()>
 					<c:if test="${not empty admin }">
-						<input type="button" value="답변" onclick="f('${cboard.cno }')">
+						<input type="button" value="답변" class="btn" onclick="f('${cboard.cno }')">
 					</c:if>
 				</td>
 			</tr>
 		</table>
 	</form>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

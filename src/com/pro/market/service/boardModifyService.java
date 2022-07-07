@@ -21,10 +21,9 @@ public class boardModifyService implements Service {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String path = request.getRealPath("boardPhoto");
 		int maxSize = 1024*1024*10;
-		MultipartRequest mRequest = null;
 		String bphoto = "", dbphoto = null;
 		try {
-			mRequest = new MultipartRequest(request, path, maxSize, "utf-8", new DefaultFileRenamePolicy());
+			MultipartRequest mRequest = new MultipartRequest(request, path, maxSize, "utf-8", new DefaultFileRenamePolicy());
 			Enumeration<String> params = mRequest.getFileNames();
 			String param = params.nextElement();
 			bphoto = mRequest.getFilesystemName(param);
@@ -37,13 +36,14 @@ public class boardModifyService implements Service {
 				int bcost = Integer.parseInt(mRequest.getParameter("bcost"));
 				String bcontent = mRequest.getParameter("bcontent");
 				BoardDao bDao = BoardDao.getInstance();
-				int result = bDao.modifyBoard(btitle, bcost, bcontent, dbphoto, bno);
+				int result = bDao.modifyBoard(btitle, bcost, bcontent, bphoto, bno);
 				if(result == BoardDao.SUCCESS) {
 					request.setAttribute("boardResult", "글수정 성공");
 				}else {
 					request.setAttribute("boardResult", "글수정 실패");
 				}
 				request.setAttribute("pageNum", mRequest.getParameter("pageNum"));
+				request.setAttribute("bno", bno);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
@@ -53,7 +53,7 @@ public class boardModifyService implements Service {
 			try {
 				File serverFile = new File(path+"/"+bphoto);
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("F:/webPro/source/1stProject/ItemMarket/WebContent/boardPhoto"+bphoto);
+				os = new FileOutputStream("F:/webPro/source/1stProject/ItemMarket/WebContent/boardPhoto/"+bphoto);
 				byte[] bs = new byte[(int)serverFile.length()];
 				while(true) {
 					int nByteCnt = is.read(bs);

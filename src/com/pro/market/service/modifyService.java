@@ -13,6 +13,9 @@ public class modifyService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session1 = request.getSession();
+		MemberDto mem = (MemberDto) session1.getAttribute("member");
+		String mgrade = mem.getMgrade();
 		String mid = request.getParameter("mid");
 		String mpw = request.getParameter("mpw");
 		String mname = request.getParameter("mname");
@@ -29,7 +32,7 @@ public class modifyService implements Service {
 		String maddress = request.getParameter("maddress");
 		String mgender = request.getParameter("mgender");
 		MemberDao mDao = MemberDao.getInstance();
-		MemberDto member = new MemberDto(mid, mpw, mname, mtel, memail, maddress, mbirth, mgender, null);
+		MemberDto member = new MemberDto(mid, mpw, mname, mtel, memail, maddress, mbirth, mgender, mgrade);
 		int result = mDao.modifyMember(member);
 		if(result == MemberDao.SUCCESS) {
 			HttpSession session = request.getSession();

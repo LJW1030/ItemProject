@@ -10,8 +10,30 @@
 <title>Insert title here</title>
 <style>
 	#content_form table{
-		width:80%;	
+		width:400px;
+		height:500px;
 		margin:0 auto;
+		border-collapse: collapse;
+	}
+	#content_form input:not(.btn){
+		border: none;
+		width:200px;
+		margin-left: 20px;
+	}
+	#content_form textarea{
+		width:300px;
+		height:100px;
+		border: none;
+		margin: 0 0 0 20px;
+	}
+	#content_form tr{
+		border-bottom: 1px solid;
+	}
+	#content_form .t1{
+		border: none
+	}
+	#content_form .btn{
+		margin-left: 110px;
 	}
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -23,7 +45,7 @@
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
-		<form action="${conPath }/cboardReply.do" method="post">
+		<form action="${conPath }/cboardReply.do?pageNum=${param.pageNum}" method="post">
 			<input type="hidden" name="cref" value="${cboard.cref }"> <input
 				type="hidden" name="cre_step" value="${cboard.cre_step }"> <input
 				type="hidden" name="cre_level" value="${cboard.cre_level }">
@@ -43,12 +65,13 @@
 					<td>본문</td>
 					<td><textarea name="ccontent" rows="5" cols="30"></textarea></td>
 				</tr>
-				<tr>
+				<tr class="t1">
 					<td colspan="2"><input type="submit" value="답변쓰기" class="btn">
 						<input type="button" value="목록" class="btn"
 						onclick="location.href='${conPath}/cboardList.do'">
 			</table>
 		</form>
 	</div>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

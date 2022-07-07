@@ -36,6 +36,7 @@ import com.pro.market.service.getPostService;
 import com.pro.market.service.idConfirmService;
 import com.pro.market.service.joinService;
 import com.pro.market.service.logoutService;
+import com.pro.market.service.memberViewService;
 import com.pro.market.service.messageDeleteService;
 import com.pro.market.service.modifyService;
 import com.pro.market.service.sellTradeService;
@@ -86,6 +87,8 @@ public class Pcontroller extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "member/emailConfirm.jsp";
 		}else if(com.equals("/memberView.do")) {
+			service = new memberViewService();
+			service.execute(request, response);
 			viewPage = "member/memberView.jsp";
 		}else if(com.equals("/modifyView.do")) {
 			viewPage = "member/modifyView.jsp";
@@ -132,7 +135,7 @@ public class Pcontroller extends HttpServlet {
 		}else if(com.equals("/boardModify.do")) {
 			service = new boardModifyService();
 			service.execute(request, response);
-			viewPage = "main/main.jsp";
+			viewPage = "boardContent.do";
 		}else if(com.equals("/boardDelete.do")) {
 			service = new boardDeleteService();
 			service.execute(request, response);
@@ -178,7 +181,7 @@ public class Pcontroller extends HttpServlet {
 		}else if(com.equals("/cboardReply.do")) {
 			service = new cboardReplyService();
 			service.execute(request, response);
-			viewPage = "main/main.jsp";
+			viewPage = "cboardList.do";
 		}else if(com.equals("/MessageReply.do")) {
 			service = new MessageReplyService();
 			service.execute(request, response);
