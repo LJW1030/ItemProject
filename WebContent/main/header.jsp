@@ -43,7 +43,7 @@
 			</div>
 			<div id="header_logo">
 			<h1>
-				<a href="main.do">LOGO</a>
+				<a href="main.do"><img src="${conPath }/boardPhoto/logo1.png" class="imgL"></a>
 			</h1>
 			</div>
 			<div id="header_sc">
@@ -186,7 +186,6 @@
 				<div class="gnb">
 					<ul>
 						<li><a href="${conPath }/cboardList.do">고객센터</a></li>
-						<li><a href="${conPath }/messagePost.do">메시지함</a></li>
 						<li><a href="${conPath }/logout.do">로그아웃</a></li>
 					</ul>
 				</div>

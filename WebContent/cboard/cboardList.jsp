@@ -22,6 +22,9 @@
 		height:50px;
 		width:100px;
 	}
+	#content_form .td1{
+		text-align: center;
+	}
 	#content_form .title{
 		width:300px;
 	}
@@ -67,7 +70,7 @@
 				<td>등록일</td>
 			</tr>
 			<c:if test="${cboardList.size()==0 }">
-			<tr><td colspan="6">등록된 글이 없습니다</td></tr>
+			<tr><td colspan="6" class="td1">등록된 글이 없습니다</td></tr>
 			</c:if>
 			<c:set var="i" value="1"/>
 			<c:forEach var="cboard" items="${cboardList }">
@@ -99,7 +102,7 @@
 				<td>등록일</td>
 			</tr>
 			<c:if test="${cboardList.size()==0 }">
-			<tr><td colspan="6">등록된 글이 없습니다</td></tr>
+			<tr><td colspan="6" class="td1">등록된 글이 없습니다</td></tr>
 			</c:if>
 			<c:set var="i" value="1"/>
 			<c:forEach var="cboard" items="${cboardList }">

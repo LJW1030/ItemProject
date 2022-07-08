@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.pro.market.dao.MessageDao;
+import com.pro.market.dto.AdminDto;
 import com.pro.market.dto.MemberDto;
 import com.pro.market.dto.MessageDto;
 
