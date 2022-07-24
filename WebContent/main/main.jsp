@@ -87,6 +87,11 @@
 			alert('${boardResult}');
 		</script>
 	</c:if>
+	<c:if test="${not empty tradeResult}">
+		<script>
+			alert('${tradeResult}');
+		</script>
+	</c:if>
 	<jsp:include page="header.jsp"/>
 	<section>
 		<div id="section1">

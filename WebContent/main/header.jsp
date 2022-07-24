@@ -42,9 +42,7 @@
 				</div>
 			</div>
 			<div id="header_logo">
-			<h1>
 				<a href="main.do"><img src="${conPath }/boardPhoto/logo1.png" class="imgL"></a>
-			</h1>
 			</div>
 			<div id="header_sc">
 				<div class="search">
@@ -118,9 +116,9 @@
 					</ul>
 				</div>
 			</div>
-			<h1>
-				<a href="main.do">LOGO</a>
-			</h1>
+			<div id="header_logo">
+				<a href="main.do"><img src="${conPath }/boardPhoto/logo1.png" class="imgL"></a>
+			</div>
 			<div id="header_sc">
 				<div class="search">
 					<form action="${conPath }/boardList.do">
@@ -190,9 +188,9 @@
 					</ul>
 				</div>
 			</div>
-			<h1>
-				<a href="main.do">LOGO</a>
-			</h1>
+			<div id="header_logo">
+				<a href="main.do"><img src="${conPath }/boardPhoto/logo1.png" class="imgL"></a>
+			</div>
 			<div id="header_sc">
 				<div class="search">
 					<form action="${conPath }/boardList.do">

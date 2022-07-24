@@ -38,7 +38,7 @@ public class boardModifyService implements Service {
 				BoardDao bDao = BoardDao.getInstance();
 				int result = bDao.modifyBoard(btitle, bcost, bcontent, bphoto, bno);
 				if(result == BoardDao.SUCCESS) {
-					request.setAttribute("boardResult", "글수정 성공");
+					request.setAttribute("boardResult", "글수정 완료");
 				}else {
 					request.setAttribute("boardResult", "글수정 실패");
 				}
