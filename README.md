@@ -1,14 +1,14 @@
 <h1>"게임아이템 거래소"</h1>
 <h2>개인 프로젝트</h2>
 --------------------------
-<h4>프로젝트 명 : Ah! IT 템(게임 아이템 거래소) </h4><br>
-<h4>인 원 : 1 명</h4> <br>
-<h4>기 간 : 2022.06.27 ~ 2022.07.07</h4> <br>
-<h4>DBMS : Oracle 11g Express Edition</h4> <br>
-<h4>언어 : Java SE 8 Platform, HTML5, CSS, CSS3, JavaScript</h4> <br>
-<h4>패턴 : MVC</h4> <br>
-<h4>오픈 Library : jQuery v3.4.1, ajax, datepicker, Daum postcode API,SweetAlert API</h4> <br>
-<h4>프로젝트 소개 : 게임 내 편리한 아이템 거래를 위해 설계된 웹</h4> <br>
+<h4>프로젝트 명 : Ah! IT 템(게임 아이템 거래소) </h4>
+<h4>인 원 : 1 명</h4> 
+<h4>기 간 : 2022.06.27 ~ 2022.07.07</h4> 
+<h4>DBMS : Oracle 11g Express Edition</h4> 
+<h4>언어 : Java SE 8 Platform, HTML5, CSS, CSS3, JavaScript</h4>
+<h4>패턴 : MVC</h4> 
+<h4>오픈 Library : jQuery v3.4.1, ajax, datepicker, Daum postcode API,SweetAlert API</h4>
+<h4>프로젝트 소개 : 게임 내 편리한 아이템 거래를 위해 설계된 웹</h4> 
 
 ![Project_Ah!IT템_이진우-01](https://user-images.githubusercontent.com/101315957/183280989-0ba61a1f-3012-4615-9a61-b8e6d501a873.png)
 ![Project_Ah!IT템_이진우-02](https://user-images.githubusercontent.com/101315957/183280994-8d543658-e7fe-43be-bbd9-b77a1211ef6c.png)
