@@ -113,17 +113,17 @@
 				<tr id="tr2">
 					<td><input type="text" name="bno" id="t" class="bno" value="${board.bno }"
 						readonly="readonly"></td>
-					<td><input type="text" name="mid" id="t" value=${board.mid }
+					<td><input type="text" name="mid" id="t" value="${board.mid }"
 						readonly="readonly"></td>
-					<td><input type="text" name="game" id="g" value=${board.game }
+					<td><input type="text" name="game" id="g" value="${board.game }"
 						readonly="readonly"></td>
 					<td><input type="text" name="btitle" class="bt"
-						value=${board.btitle } readonly="readonly" style="cursor: pointer"
+						value="${board.btitle }" readonly="readonly" style="cursor: pointer"
 						onclick="func('${board.bno }')"></td>
-					<td><input type="text" name="bcost" id="t" value=${board.bcost }
+					<td><input type="text" name="bcost" id="t" value="${board.bcost }"
 						readonly="readonly"></td>
 					<td><input type="text" name="brdate" id="t"
-						value=${board.brdate } readonly="readonly"></td>
+						value="${board.brdate }" readonly="readonly"></td>
 				</tr>
 			</c:forEach>
 		</table>
