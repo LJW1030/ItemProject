@@ -1,14 +1,43 @@
-<h1>"게임아이템 거래소"</h1>
-<h2>개인 프로젝트</h2>
---------------------------
-<h4>프로젝트 명 : Ah! IT 템(게임 아이템 거래소) </h4>
-<h4>인 원 : 1 명</h4> 
-<h4>기 간 : 2022.06.27 ~ 2022.07.07</h4> 
-<h4>DBMS : Oracle 11g Express Edition</h4> 
-<h4>언어 : Java SE 8 Platform, HTML5, CSS, CSS3, JavaScript</h4>
-<h4>패턴 : MVC</h4> 
-<h4>오픈 Library : jQuery v3.4.1, ajax, datepicker, Daum postcode API,SweetAlert API</h4>
-<h4>프로젝트 소개 : 게임 내 편리한 아이템 거래를 위해 설계된 웹</h4> 
+# :pushpin: Ah! IT 템
+>게임아이템 거래소
+
+</br>
+
+## 1. 제작 기간 & 참여 인원
+- 2022년 6월 27일 ~ 7월 7일
+- 개인 프로젝트(1명)
+
+</br>
+
+## 2. 사용 기술
+#### `Back-end`
+  - Java 8
+  - Oracle 11
+  
+#### `DevOps`
+  - Tomcat 9.0
+  - eclipse
+  - Windows 10
+
+#### `Front-end`
+  - JavaScript
+  - JQuery 3.6
+  - Html/Css
+
+</br>
+
+## 3. ERD 설계
+![Project_Ah!IT템_이진우-15](https://user-images.githubusercontent.com/101315957/183281083-c8cb8051-e107-4b04-a2c3-7740de360e54.png)
+
+
+## 4. 핵심 기능
+- 게임 이용자들의 아이템 거래를 원활하게 해줍니다.
+- 거래를 원하는 종류의 게임을 검색할 수 있습니다.
+- 회원간 메시지를 주고 받을 수 있습니다.
+
+<details>
+<summary><b>Project ppt 펼치기</b></summary>
+<div markdown="1">
 
 ![Project_Ah!IT템_이진우-01](https://user-images.githubusercontent.com/101315957/183280989-0ba61a1f-3012-4615-9a61-b8e6d501a873.png)
 ![Project_Ah!IT템_이진우-02](https://user-images.githubusercontent.com/101315957/183280994-8d543658-e7fe-43be-bbd9-b77a1211ef6c.png)
@@ -46,3 +75,34 @@
 ![Project_Ah!IT템_이진우-34](https://user-images.githubusercontent.com/101315957/183281107-4200254d-ea6c-4898-beac-e4e42dc0447e.png)
 ![Project_Ah!IT템_이진우-35](https://user-images.githubusercontent.com/101315957/183281109-d2bb03cf-2fdb-4ded-a347-9f8171a108db.png)
 ![Project_Ah!IT템_이진우-36](https://user-images.githubusercontent.com/101315957/183281110-7309c168-e8ba-41c8-af33-3b0f3707741f.png)
+
+</div>
+</details>
+
+</br>
+
+## 5. 핵심 트러블 슈팅
+### 5.1. 회원 간 메시지
+- 사이트 내에서 회원간 연락을 어떻게 주고받으면 보다 편리할지 고민했습니다.
+- API를 사용하지 않고 직접 메시지 기능을 구현했습니다.
+
+### 5.2. 거래완료
+- 본인 거래내역에 완료된 거래가 적립되려면 거래를 누구와 진행했는지 알아야 합니다.
+- 거래글 작성자가 거래완료를 누를시 누구와 거래를 했는지 입력하는 란을 만들어 문제를 해결했습니다.
+
+
+</div>
+</details>
+
+</br>
+
+## 6. 차후 개선 사항
+- 관리자 공지사항
+- 관리자가 볼 수 있는 웹사이트 회원리스트
+- 회원끼리의 실시간 채팅API
+- 사이트 내 결제 API
+
+
+  
+  
+  
