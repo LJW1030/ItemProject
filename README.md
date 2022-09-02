@@ -36,7 +36,7 @@
 - 회원간 메시지를 주고 받을 수 있습니다.
 
 <details>
-<summary><b>Project ppt 펼치기</b></summary>
+<summary><h2>Project ppt 펼치기</h2></summary>
 <div markdown="1">
 
 ![Project_Ah!IT템_이진우-01](https://user-images.githubusercontent.com/101315957/183280989-0ba61a1f-3012-4615-9a61-b8e6d501a873.png)
