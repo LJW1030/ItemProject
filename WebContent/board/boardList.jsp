@@ -87,7 +87,7 @@
 		
 	});
 	function func(bno){
-		location.href = '${conPath}/boardContent.do?bno='+bno+'&pageNum=${pageNum}';
+		location.href = '${conPath}/boardContent.do?bno='+bno+'&pageNum=${pageNum}&game=${param.game}&bbs=${param.bbs}';
 	}
 </script>
 </head>

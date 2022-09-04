@@ -127,7 +127,8 @@
 						<c:if test="${!(member.mid eq board.mid) and not empty member }">
 							<input type="submit" value="거래신청" class="btn">
 						</c:if> 
-						<input type="button" value="목록" class="btn" onclick=history.back()></td>
+						<input type="button" value="목록" class="btn" onclick="location='${conPath }/boardList.do?pageNum=${param.pageNum }&game=${param.game}&bbs=${param.bbs}'">
+					</td>
 				</tr>
 			</table>
 			<table id="t1" style="display: none">
