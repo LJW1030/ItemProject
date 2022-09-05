@@ -119,7 +119,7 @@
 					<td colspan="2">
 						<c:if test="${member.mid eq board.mid }">
 							<input type="button" class="btnT" value="거래완료" onclick="fn()">
-							<input type="button" value="수정" class="btn"onclick="location='${conPath}/boardModifyView.do?bno=${board.bno }&pageNum=${param.pageNum }'">
+							<input type="button" value="수정" class="btn"onclick="location='${conPath}/boardModifyView.do?bno=${board.bno }&pageNum=${param.pageNum }&game=${param.game}&bbs=${param.bbs}'">
 						</c:if> 
 						<c:if test="${member.mid eq board.mid or not empty admin}">
 							<input type="button" value="삭제" class="btn" onclick="location='${conPath}/boardDelete.do?bno=${board.bno }&pageNum=${param.pageNum }'">

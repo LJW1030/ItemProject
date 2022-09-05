@@ -43,6 +43,8 @@ public class boardModifyService implements Service {
 					request.setAttribute("boardResult", "글수정 실패");
 				}
 				request.setAttribute("pageNum", mRequest.getParameter("pageNum"));
+				request.setAttribute("game", mRequest.getParameter("game"));
+				request.setAttribute("bbs", mRequest.getParameter("bbs"));
 				request.setAttribute("bno", bno);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());

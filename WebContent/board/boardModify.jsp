@@ -63,7 +63,7 @@
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
-	<form action="${conPath }/boardModify.do" method="post" enctype="multipart/form-data">
+	<form action="${conPath }/boardModify.do?pageNum=${param.pageNum }&game=${param.game}&bbs=${param.bbs}" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="pageNum" value="${param.pageNum }">
 		<input type="hidden" name="bno" value="${board.bno }">
 		<input type="hidden" name="dbphoto" value="${board.bphoto }">
