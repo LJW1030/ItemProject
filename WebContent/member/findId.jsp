@@ -8,6 +8,56 @@
 <head>
 <meta charset="${encoding}">
 <title>Insert title here</title>
+<style>
+		#content{
+			width: 600px;
+	        height : 300px;
+	        margin: 0 auto;
+	        max-width: 500px;
+	        margin-top: 200px;
+	        margin-bottom:80px;
+	        padding: 20px;
+	        background: #fff;
+	        -webkit-border-radius: 10px;
+	        -moz-border-radius: 10px;
+	        border-radius: 10px;
+	        -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	        -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	        box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+		}
+		#content table{
+		}
+		#content table tr td{
+			width:300px;
+			text-align: center;
+			padding-top:10px;
+		}
+		#content textarea{
+			width:230px;
+			padding-top:10px;
+			margin-left: 30px;
+			border:none;
+		}
+		#content input{
+			border-left:none;
+			border-right:none;
+			border-top:none;
+		}
+		#content .btn{
+			margin:  80px 0;
+            background: #fff;
+            border-color: black;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+		}
+		h2{
+			text-align: center;
+		}
+	</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
